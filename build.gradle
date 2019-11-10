@@ -6,7 +6,7 @@ plugins {
 //    id 'idea'
 }
 
-group = 'vietteldigital.webback.bankplus'
+group = 'springweb.demo'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -23,11 +23,9 @@ repositories {
     jcenter()
     mavenCentral()
     maven { url 'https://repo.spring.io/plugins-release' }
-
-    /*new version, essential risk*/
     maven { url 'https://repo.spring.io/milestone' }
     maven { url 'https://repo.spring.io/snapshot' }
-    //	maven { url 'https://vds.repo.io/webback/libs' }
+    //	maven { url 'https://mdp.repo.io/webback/libs' }
 }
 
 dependencies {
@@ -35,7 +33,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
     implementation 'org.springframework.boot.experimental:spring-boot-starter-data-r2dbc'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-//    runtimeOnly 'dev.miku:r2dbc-mysql'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
@@ -47,7 +44,6 @@ dependencies {
             "org.json:json:20180130",
 			"org.mongodb:mongodb-driver-reactivestreams:1.12.0",			
 			'org.projectreactor:reactor-spring:1.0.1.RELEASE',
-//			'mysql:mysql-connector-java:5.1.36'
 			'io.r2dbc:r2dbc-pool',
 			'com.github.jasync-sql:jasync-r2dbc-mysql:0.9.41'
     )
