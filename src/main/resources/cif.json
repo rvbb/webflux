@@ -1,0 +1,9 @@
+{
+  "name": "Nguyen Van A", 
+  "description": "Using credit and loan",
+  "base": "User",
+  "idInjection": false,
+  "strict": true,
+  "banklist": [],
+  "created":"Date"
+}
