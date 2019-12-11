@@ -45,8 +45,11 @@ dependencies {
 			"org.mongodb:mongodb-driver-reactivestreams:1.12.0",			
 			'org.projectreactor:reactor-spring:1.0.1.RELEASE',
 			'io.r2dbc:r2dbc-pool',
-			'com.github.jasync-sql:jasync-r2dbc-mysql:0.9.41'
+			'com.github.jasync-sql:jasync-r2dbc-mysql:0.9.41',
+			'io.r2dbc:r2dbc-pool:0.8.0.M8',
+            'io.r2dbc:r2dbc-postgresql:0.8.0.M8'
     )
+    implementation 'org.springframework.boot.experimental:spring-boot-starter-data-r2dbc'
 
     /*dev only*/
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -60,6 +63,7 @@ dependencies {
 
 dependencyManagement {
     imports {
+        mavenBom 'org.springframework.boot.experimental:spring-boot-bom-r2dbc:0.1.0.BUILD-SNAPSHOT'
         mavenBom 'org.springframework.boot.experimental:spring-boot-bom-r2dbc:0.1.0.BUILD-SNAPSHOT'
     }
 }
