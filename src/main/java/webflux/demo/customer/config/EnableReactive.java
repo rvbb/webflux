@@ -22,7 +22,7 @@ public class EnableReactive extends AbstractReactiveMongoConfiguration {
 
 	@Override
 	protected String getDatabaseName() {
-		return "devdb";
+		return "xxx";
 	}
 
 	@Override
