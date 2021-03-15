@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +39,9 @@ public class CifController {
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "all cif be fechted success", response = Cif.class),
 			@ApiResponse(code = 400, message = "Bad request", response = FailureResponse.class) })
-	@GetMapping(value = "/get/{base}")
+	@GetMapping
 	@Cacheable("cifs")
-	public Flux<Cif> getCifByBase(@PathVariable String base) {
+	public Flux<Cif> getCifByBase(@Param("base") String base) {
 		return service.findByBase(base);
 	}
 	
@@ -59,7 +60,7 @@ public class CifController {
 //	@ApiResponses(value = { @ApiResponse(code = 200, message = "create success", response = Cif.class),
 //			@ApiResponse(code = 400, message = "Bad request", response = FailureResponse.class),
 //			@ApiResponse(code = 500, message = "Internal Server Error", response = FailureResponse.class)})
-	@PostMapping(value = "/create/auto")
+	@PostMapping(value = "/create-auto")
 	@Cacheable("cifcreateAuto")
 	public Mono<Cif> createAuto() {
 		return service.createFromOtherAPI();
