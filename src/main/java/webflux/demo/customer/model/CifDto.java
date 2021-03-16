@@ -1,15 +1,19 @@
 package webflux.demo.customer.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class CifDto {
-
-	//implemenet after
+    private String id;
+    private String description;
+    private String base;
+    private Boolean strict;
+    private Boolean idInjection;
+    private List<BankListDemo> banklist;
+    private Date created;
 }

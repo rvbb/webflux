@@ -1,15 +1,18 @@
 package webflux.demo.customer.model;
 
-public class FailureResponse {
-    
-    public int code = 0;
-    
-    public String fail = "";
-    
-    public String message = "";
-    
-    public String path = "";
-    
-    public int moment = 0;
-    
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public enum FailureResponse {
+
+    CODE((String)"0"),
+    FAIL((String)""),
+    MESSAGE(""),
+    PATH(""),
+    MOMENT((String)"0"),
+    BANKLISTDEMO_URI_ALL((String)"/all");
+
+    private String stringVal;
 }

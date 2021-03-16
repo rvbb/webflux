@@ -4,17 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import webflux.demo.customer.model.BankListDemo;
 import webflux.demo.customer.model.Cif;
+import webflux.demo.customer.model.CifDto;
 import webflux.demo.customer.repo.ICifRepository;
-import webflux.demo.customer.util.IConstant;
+import webflux.demo.customer.service.mapper.CifMapperImpl;
+import webflux.demo.customer.util.Constant;
 
 @Service
 public class CifService {
-
 	@Autowired
 	private ICifRepository repository;
 
@@ -22,7 +22,8 @@ public class CifService {
 	@Qualifier("banklistService")
 	private WebClient banklistService;
 
-	public Mono<Cif> create(Cif cif) {
+	public Mono<Cif> create(CifDto cifDto) {
+		Cif cif = CifMapperImpl.instance.toEntity(cifDto);
 		return repository.insert(cif);
 	}
 
@@ -41,9 +42,7 @@ public class CifService {
 		cif.setStrict(true);
 		cif.setDescription("a b c");
 
-//		WebClient banklistService = WebClient.create("http://localhost:20191/bank/banklistdemo");
-		// banklist will be got from bankplus#banklist_demo api
-		Flux<BankListDemo> bankListMono = banklistService.get().uri(IConstant.BANKLISTDEMO_URI_ALL).retrieve().bodyToFlux(BankListDemo.class);
+		Flux<BankListDemo> bankListMono = banklistService.get().uri(Constant.BANKLISTDEMO_URI_ALL.getVal()).retrieve().bodyToFlux(BankListDemo.class);
 		cif.setBanklist(bankListMono.collectList().block());
 		return repository.insert(cif);
 	}

@@ -34,9 +34,4 @@ public class Cif {
     @CreatedDate
     private Date created;
 
-
-//    @Override
-//    public String toString() {
-//        return new JSONObject(this).toString();
-//    }
 }
