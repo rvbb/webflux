@@ -43,7 +43,7 @@ public class CifService {
 		cif.setDescription("a b c");
 
 		Flux<BankListDemo> bankListMono = banklistService.get().uri(Constant.BANKLISTDEMO_URI_ALL.getVal()).retrieve().bodyToFlux(BankListDemo.class);
-		cif.setBanklist(bankListMono.collectList().block());
+		cif.setBankList(bankListMono.collectList().block());
 		return repository.insert(cif);
 	}
 }

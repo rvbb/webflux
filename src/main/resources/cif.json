@@ -1,9 +1,82 @@
 {
-  "name": "Nguyen Van A", 
-  "description": "Using credit and loan",
-  "base": "User",
-  "idInjection": false,
-  "strict": true,
-  "banklist": [],
-  "created":"Date"
+	"info": {
+		"_postman_id": "dfd85eb0-0f32-4542-9f4a-fd48b1ab70c7",
+		"name": "webflux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Customer c\", \r\n  \"description\": \"customer cccccccccccccccccc\",\r\n  \"base\": \"VCB\",\r\n  \"idInjection\": true,\r\n  \"strict\": false,\r\n  \"bankList\": [{\"bankName\":\"Vietinbnak\", \"type\":1}]  \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:20210/customer/cif",
+					"host": [
+						"localhost"
+					],
+					"port": "20210",
+					"path": [
+						"customer",
+						"cif"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create auto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:20210/customer/cif/auto",
+					"host": [
+						"localhost"
+					],
+					"port": "20210",
+					"path": [
+						"customer",
+						"cif",
+						"auto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByBase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:20210/customer/cif?base=User",
+					"host": [
+						"localhost"
+					],
+					"port": "20210",
+					"path": [
+						"customer",
+						"cif"
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "User"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }

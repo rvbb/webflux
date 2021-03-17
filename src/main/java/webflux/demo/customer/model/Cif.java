@@ -29,7 +29,7 @@ public class Cif {
     
     private Boolean idInjection;
     
-    private List<BankListDemo> banklist;
+    private List<BankListDemo> bankList;
     
     @CreatedDate
     private Date created;
