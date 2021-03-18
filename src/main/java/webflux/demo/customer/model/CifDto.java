@@ -14,6 +14,6 @@ public class CifDto {
     private String base;
     private Boolean strict;
     private Boolean idInjection;
-    private List<BankListDemo> banklist;
+    private List<BankListDemo> bankList;
     private Date created;
 }

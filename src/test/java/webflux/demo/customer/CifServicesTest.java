@@ -14,10 +14,7 @@ class CifServicesTest {
 	CifService service;
 	
 	@Test
-	void createFromOtherAPI_Test() {
-		// given
-		// when
-		// then
+	void givenX_whenY_thenZ() {
 		System.out.println(service);
 		assertTrue(true);
 	}
